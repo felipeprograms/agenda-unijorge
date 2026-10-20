@@ -1,0 +1,110 @@
+.evento {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(13, 38, 76, 0.08);
+}
+
+.evento h2 {
+  margin: 0 0 8px;
+  color: #123b67;
+}
+
+.status-salvo {
+  margin: 0 0 20px;
+  color: #55718b;
+  font-size: 14px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grupo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #244b73;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #c7d4e5;
+  border-radius: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.erro {
+  color: #b42318;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(0.98);
+}
+
+button[type='submit'] {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: #fff;
+}
+
+button.secundario {
+  background: #eef4ff;
+  color: #1e3a5f;
+}
+
+@media (max-width: 640px) {
+  .grupo {
+    grid-template-columns: 1fr;
+  }
+
+  .evento {
+    padding: 18px;
+  }
+}

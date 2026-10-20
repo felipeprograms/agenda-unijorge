@@ -1,0 +1,103 @@
+<section class="cadastro-evento">
+  <h2>Novo evento</h2>
+
+  <form class="formulario" novalidate (ngSubmit)="salvar()">
+    <div class="campo">
+      <label for="titulo">Título do evento</label>
+      <input
+        id="titulo"
+        type="text"
+        name="titulo"
+        [(ngModel)]="evento.titulo"
+        (blur)="marcarTocado('titulo')"
+        [class.invalido]="deveMostrar('titulo')"
+      />
+      @if (deveMostrar('titulo')) {
+        <small class="erro">{{ mensagem('titulo') }}</small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="data">Data</label>
+      <input
+        id="data"
+        type="date"
+        name="data"
+        [(ngModel)]="evento.data"
+        (blur)="marcarTocado('data')"
+        [class.invalido]="deveMostrar('data')"
+      />
+      @if (deveMostrar('data')) {
+        <small class="erro">{{ mensagem('data') }}</small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="local">Local</label>
+      <select
+        id="local"
+        name="local"
+        [(ngModel)]="evento.local"
+        (blur)="marcarTocado('local')"
+        [class.invalido]="deveMostrar('local')"
+      >
+        <option value="">Selecione o local</option>
+        <option value="Auditório">Auditório</option>
+        <option value="Laboratório 1">Laboratório 1</option>
+        <option value="Laboratório 2">Laboratório 2</option>
+        <option value="Sala 101">Sala 101</option>
+      </select>
+      @if (deveMostrar('local')) {
+        <small class="erro">{{ mensagem('local') }}</small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="emailResponsavel">E-mail do responsável</label>
+      <input
+        id="emailResponsavel"
+        type="email"
+        name="emailResponsavel"
+        [(ngModel)]="evento.emailResponsavel"
+        (blur)="marcarTocado('emailResponsavel')"
+        [class.invalido]="deveMostrar('emailResponsavel')"
+      />
+      @if (deveMostrar('emailResponsavel')) {
+        <small class="erro">{{ mensagem('emailResponsavel') }}</small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="vagas">Vagas</label>
+      <input
+        id="vagas"
+        type="number"
+        name="vagas"
+        min="1"
+        max="200"
+        [(ngModel)]="evento.vagas"
+        (blur)="marcarTocado('vagas')"
+        [class.invalido]="deveMostrar('vagas')"
+      />
+      @if (deveMostrar('vagas')) {
+        <small class="erro">{{ mensagem('vagas') }}</small>
+      }
+    </div>
+
+    <div class="botoes">
+      <button type="submit" [disabled]="temErro">Salvar</button>
+    </div>
+  </form>
+
+  <section class="lista-eventos">
+    @for (item of eventosSalvos; track item.id) {
+      <article class="cartao-evento">
+        <h3>{{ item.titulo }}</h3>
+        <p>{{ item.data }} · {{ item.local }}</p>
+        <p>{{ item.emailResponsavel }} · {{ item.vagas }} vagas</p>
+      </article>
+    } @empty {
+      <p class="vazio">Nenhum evento cadastrado.</p>
+    }
+  </section>
+</section>

@@ -1,0 +1,35 @@
+<section class="empresa">
+  <h2>Cadastro da Empresa</h2>
+
+  <form class="formulario" (ngSubmit)="salvar()" novalidate>
+    <div class="grupo">
+      <label for="nome">Nome</label>
+      <input id="nome" type="text" name="nome" [(ngModel)]="dados.nome" placeholder="Digite o nome da empresa" />
+    </div>
+
+    <div class="grupo">
+      <label for="cnpj">CNPJ</label>
+      <input id="cnpj" type="text" name="cnpj" [(ngModel)]="dados.cnpj" placeholder="Digite o CNPJ" />
+    </div>
+
+    <div class="grupo">
+      <label for="logomarca">Logomarca</label>
+      <input id="logomarca" type="text" name="logomarca" [(ngModel)]="dados.logomarca" placeholder="URL ou nome da marca" />
+    </div>
+
+    <div class="grupo">
+      <label for="fundacao">Fundação</label>
+      <input id="fundacao" type="date" name="fundacao" [(ngModel)]="dados.fundacao" />
+    </div>
+
+    <div class="grupo">
+      <label for="descricao">Descrição</label>
+      <input id="descricao" type="text" name="descricao" [(ngModel)]="dados.descricao" placeholder="Descreva a empresa" />
+    </div>
+
+    <div class="acoes">
+      <button type="reset" (click)="limparFormulario()">Limpar</button>
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+</section>

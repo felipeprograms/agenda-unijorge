@@ -1,0 +1,105 @@
+.cadastro-evento {
+  display: grid;
+  gap: 24px;
+}
+
+.formulario {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--cartao);
+  box-shadow: var(--sombra);
+}
+
+.campo {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--linha);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--tinta);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgba(29, 90, 168, 0.2);
+  border-color: var(--azul-claro);
+}
+
+input.invalido,
+select.invalido {
+  border-color: var(--erro);
+  background: var(--erro-fundo);
+}
+
+.erro {
+  color: var(--erro);
+  font-size: 0.82rem;
+}
+
+.botoes {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  background: var(--azul-claro);
+  color: #fff;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lista-eventos {
+  display: grid;
+  gap: 12px;
+}
+
+.cartao-evento {
+  padding: 18px 20px;
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--cartao);
+  box-shadow: var(--sombra);
+}
+
+.cartao-evento h3 {
+  margin: 0 0 8px;
+  color: var(--azul-escuro);
+}
+
+.cartao-evento p {
+  margin: 0;
+  color: var(--tinta-2);
+}
+
+.vazio {
+  margin: 0;
+  color: var(--tinta-2);
+}
