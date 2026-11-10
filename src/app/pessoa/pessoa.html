@@ -1,0 +1,192 @@
+<section class="ficha">
+  <h2>Dados pessoais</h2>
+
+  <p class="status-salvo">Dados salvos automaticamente no navegador.</p>
+
+  <form class="formulario" (ngSubmit)="salvar()" novalidate>
+    <div class="grupo">
+      <label>
+        Nome completo
+        <input
+          type="text"
+          name="nomeCompleto"
+          [(ngModel)]="dados.nomeCompleto"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('nomeCompleto')"
+          placeholder="Digite o nome completo"
+        />
+        @if (deveMostrar('nomeCompleto')) {
+          <small class="erro">{{ mensagem('nomeCompleto') }}</small>
+        }
+      </label>
+
+      <label>
+        Data de nascimento
+        <input
+          type="date"
+          name="dataNascimento"
+          [(ngModel)]="dados.dataNascimento"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('dataNascimento')"
+        />
+        @if (deveMostrar('dataNascimento')) {
+          <small class="erro">{{ mensagem('dataNascimento') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="grupo">
+      <label>
+        Número de CPF
+        <input
+          type="text"
+          name="numeroCpf"
+          [(ngModel)]="dados.numeroCpf"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('numeroCpf')"
+          inputmode="numeric"
+          placeholder="00000000000"
+        />
+        @if (deveMostrar('numeroCpf')) {
+          <small class="erro">{{ mensagem('numeroCpf') }}</small>
+        }
+      </label>
+
+      <label>
+        Número de RG
+        <input
+          type="text"
+          name="numeroRg"
+          [(ngModel)]="dados.numeroRg"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('numeroRg')"
+          inputmode="numeric"
+          placeholder="00000000"
+        />
+        @if (deveMostrar('numeroRg')) {
+          <small class="erro">{{ mensagem('numeroRg') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="grupo">
+      <label>
+        Nome da mãe
+        <input
+          type="text"
+          name="nomeMae"
+          [(ngModel)]="dados.nomeMae"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('nomeMae')"
+          placeholder="Nome completo da mãe"
+        />
+        @if (deveMostrar('nomeMae')) {
+          <small class="erro">{{ mensagem('nomeMae') }}</small>
+        }
+      </label>
+
+      <label>
+        Nome do pai
+        <input
+          type="text"
+          name="nomePai"
+          [(ngModel)]="dados.nomePai"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('nomePai')"
+          placeholder="Nome completo do pai"
+        />
+        @if (deveMostrar('nomePai')) {
+          <small class="erro">{{ mensagem('nomePai') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="grupo">
+      <label>
+        País de origem
+        <input
+          type="text"
+          name="paisOrigem"
+          [(ngModel)]="dados.paisOrigem"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('paisOrigem')"
+          placeholder="Brasil"
+        />
+        @if (deveMostrar('paisOrigem')) {
+          <small class="erro">{{ mensagem('paisOrigem') }}</small>
+        }
+      </label>
+
+      <label>
+        UF de origem
+        <input
+          type="text"
+          name="ufOrigem"
+          [(ngModel)]="dados.ufOrigem"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('ufOrigem')"
+          maxlength="2"
+          placeholder="BA"
+        />
+        @if (deveMostrar('ufOrigem')) {
+          <small class="erro">{{ mensagem('ufOrigem') }}</small>
+        }
+      </label>
+
+      <label>
+        Cidade de origem
+        <input
+          type="text"
+          name="cidadeOrigem"
+          [(ngModel)]="dados.cidadeOrigem"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('cidadeOrigem')"
+          placeholder="Salvador"
+        />
+        @if (deveMostrar('cidadeOrigem')) {
+          <small class="erro">{{ mensagem('cidadeOrigem') }}</small>
+        }
+      </label>
+    </div>
+
+    <h3>Dados de contato</h3>
+
+    <div class="grupo">
+      <label>
+        E-mail
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="dados.email"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('email')"
+          placeholder="nome@email.com"
+        />
+        @if (deveMostrar('email')) {
+          <small class="erro">{{ mensagem('email') }}</small>
+        }
+      </label>
+
+      <label>
+        Telefone
+        <input
+          type="text"
+          name="telefone"
+          [(ngModel)]="dados.telefone"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('telefone')"
+          inputmode="numeric"
+          placeholder="11999998888"
+        />
+        @if (deveMostrar('telefone')) {
+          <small class="erro">{{ mensagem('telefone') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="acoes">
+      <button type="submit">Salvar</button>
+      <button type="button" class="secundario" (click)="limpar()">Limpar</button>
+    </div>
+  </form>
+</section>

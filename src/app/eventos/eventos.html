@@ -1,0 +1,179 @@
+<section class="evento">
+  <h2>Cadastro de evento</h2>
+
+  <p class="status-salvo">Dados salvos automaticamente no navegador.</p>
+
+  <form class="formulario" (ngSubmit)="salvar()" novalidate>
+    <div class="grupo">
+      <label>
+        Nome do evento
+        <input
+          type="text"
+          name="nomeEvento"
+          [(ngModel)]="dados.nomeEvento"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('nomeEvento')"
+          placeholder="Ex.: Semana Acadêmica"
+        />
+        @if (deveMostrar('nomeEvento')) {
+          <small class="erro">{{ mensagem('nomeEvento') }}</small>
+        }
+      </label>
+
+      <label>
+        Categoria
+        <select
+          name="categoriaEvento"
+          [(ngModel)]="dados.categoriaEvento"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('categoriaEvento')"
+        >
+          <option value="">Selecione</option>
+          <option value="Palestra">Palestra</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Seminario">Seminário</option>
+          <option value="Cultural">Cultural</option>
+          <option value="Academico">Acadêmico</option>
+          <option value="Outro">Outro</option>
+        </select>
+        @if (deveMostrar('categoriaEvento')) {
+          <small class="erro">{{ mensagem('categoriaEvento') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="grupo">
+      <label>
+        Data do evento
+        <input
+          type="date"
+          name="dataEvento"
+          [(ngModel)]="dados.dataEvento"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('dataEvento')"
+        />
+        @if (deveMostrar('dataEvento')) {
+          <small class="erro">{{ mensagem('dataEvento') }}</small>
+        }
+      </label>
+
+      <label>
+        Horário
+        <input
+          type="time"
+          name="horarioEvento"
+          [(ngModel)]="dados.horarioEvento"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('horarioEvento')"
+        />
+        @if (deveMostrar('horarioEvento')) {
+          <small class="erro">{{ mensagem('horarioEvento') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="grupo">
+      <label>
+        Local
+        <input
+          type="text"
+          name="localEvento"
+          [(ngModel)]="dados.localEvento"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('localEvento')"
+          placeholder="Ex.: Auditório Principal"
+        />
+        @if (deveMostrar('localEvento')) {
+          <small class="erro">{{ mensagem('localEvento') }}</small>
+        }
+      </label>
+
+      <label>
+        Responsável
+        <input
+          type="text"
+          name="responsavelEvento"
+          [(ngModel)]="dados.responsavelEvento"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('responsavelEvento')"
+          placeholder="Nome da pessoa responsável"
+        />
+        @if (deveMostrar('responsavelEvento')) {
+          <small class="erro">{{ mensagem('responsavelEvento') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="grupo">
+      <label>
+        E-mail do responsável
+        <input
+          type="email"
+          name="emailResponsavel"
+          [(ngModel)]="dados.emailResponsavel"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('emailResponsavel')"
+          placeholder="responsavel@email.com"
+        />
+        @if (deveMostrar('emailResponsavel')) {
+          <small class="erro">{{ mensagem('emailResponsavel') }}</small>
+        }
+      </label>
+
+      <label>
+        Telefone de contato
+        <input
+          type="text"
+          name="telefoneContato"
+          [(ngModel)]="dados.telefoneContato"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('telefoneContato')"
+          inputmode="numeric"
+          placeholder="(11) 99999-8888"
+        />
+        @if (deveMostrar('telefoneContato')) {
+          <small class="erro">{{ mensagem('telefoneContato') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="grupo">
+      <label>
+        Capacidade de participantes
+        <input
+          type="number"
+          name="capacidadeParticipantes"
+          [(ngModel)]="dados.capacidadeParticipantes"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('capacidadeParticipantes')"
+          min="1"
+          max="5000"
+          placeholder="150"
+        />
+        @if (deveMostrar('capacidadeParticipantes')) {
+          <small class="erro">{{ mensagem('capacidadeParticipantes') }}</small>
+        }
+      </label>
+
+      <label>
+        Descrição do evento
+        <textarea
+          name="descricaoEvento"
+          [(ngModel)]="dados.descricaoEvento"
+          (ngModelChange)="salvarAutomaticamente()"
+          (blur)="marcarTocado('descricaoEvento')"
+          rows="4"
+          placeholder="Descreva o objetivo, público e informações do evento"
+        ></textarea>
+        @if (deveMostrar('descricaoEvento')) {
+          <small class="erro">{{ mensagem('descricaoEvento') }}</small>
+        }
+      </label>
+    </div>
+
+    <div class="acoes">
+      <button type="submit">Salvar evento</button>
+      <button type="button" class="secundario" (click)="limpar()">Limpar</button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,84 @@
+<section class="cadastro-participante">
+  <h4>Adicionar participante</h4>
+
+  <form class="formulario-participante" novalidate (ngSubmit)="salvar()">
+    <div class="campo">
+      <label for="nomeCompleto-{{ eventoId }}">Nome completo</label>
+      <input
+        id="nomeCompleto-{{ eventoId }}"
+        type="text"
+        name="nomeCompleto"
+        [(ngModel)]="participante.nomeCompleto"
+        (blur)="marcarTocado('nomeCompleto')"
+        [class.invalido]="deveMostrar('nomeCompleto')"
+      />
+      @if (deveMostrar('nomeCompleto')) {
+        <small class="erro">{{ mensagem('nomeCompleto') }}</small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="email-{{ eventoId }}">E-mail</label>
+      <input
+        id="email-{{ eventoId }}"
+        type="email"
+        name="email"
+        [(ngModel)]="participante.email"
+        (blur)="marcarTocado('email')"
+        [class.invalido]="deveMostrar('email')"
+      />
+      @if (deveMostrar('email')) {
+        <small class="erro">{{ mensagem('email') }}</small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="telefone-{{ eventoId }}">Telefone</label>
+      <input
+        id="telefone-{{ eventoId }}"
+        type="tel"
+        name="telefone"
+        inputmode="tel"
+        placeholder="(11) 99999-8888"
+        [(ngModel)]="participante.telefone"
+        (blur)="marcarTocado('telefone')"
+        [class.invalido]="deveMostrar('telefone')"
+      />
+      @if (deveMostrar('telefone')) {
+        <small class="erro">{{ mensagem('telefone') }}</small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="formaPagamento-{{ eventoId }}">Forma de pagamento</label>
+      <select
+        id="formaPagamento-{{ eventoId }}"
+        name="formaPagamento"
+        [(ngModel)]="participante.formaPagamento"
+        (blur)="marcarTocado('formaPagamento')"
+        [class.invalido]="deveMostrar('formaPagamento')"
+      >
+        <option value="">Selecione</option>
+        @for (forma of formasPagamento; track forma) {
+          <option [value]="forma">{{ forma }}</option>
+        }
+      </select>
+      @if (deveMostrar('formaPagamento')) {
+        <small class="erro">{{ mensagem('formaPagamento') }}</small>
+      }
+    </div>
+
+    <button type="submit">Cadastrar participante</button>
+  </form>
+
+  <ul class="lista-participantes">
+    @for (item of participantes; track item.id) {
+      <li>
+        <strong>{{ item.nomeCompleto }}</strong>
+        <span>{{ item.email }} · {{ item.telefone }} · {{ item.formaPagamento }}</span>
+      </li>
+    } @empty {
+      <li class="vazio">Nenhum participante cadastrado.</li>
+    }
+  </ul>
+</section>

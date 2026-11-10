@@ -1,0 +1,93 @@
+.cadastro-participante {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--linha);
+}
+
+.cadastro-participante h4 {
+  margin: 0;
+  color: var(--azul-escuro);
+}
+
+.formulario-participante {
+  display: grid;
+  gap: 12px;
+}
+
+.campo {
+  display: grid;
+  gap: 6px;
+}
+
+label {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--linha);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--tinta);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgba(29, 90, 168, 0.2);
+  border-color: var(--azul-claro);
+}
+
+input.invalido,
+select.invalido {
+  border-color: var(--erro);
+  background: var(--erro-fundo);
+}
+
+.erro {
+  color: var(--erro);
+  font-size: 0.82rem;
+}
+
+button {
+  justify-self: end;
+  border: none;
+  border-radius: 8px;
+  background: var(--azul-claro);
+  color: #fff;
+  padding: 9px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lista-participantes {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-participantes li {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--papel);
+}
+
+.lista-participantes span,
+.vazio {
+  color: var(--tinta-2);
+  font-size: 0.9rem;
+}
